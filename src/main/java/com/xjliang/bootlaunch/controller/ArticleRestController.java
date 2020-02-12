@@ -2,6 +2,9 @@ package com.xjliang.bootlaunch.controller;
 
 import com.xjliang.bootlaunch.model.AjaxResponse;
 import com.xjliang.bootlaunch.model.Article;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rest")
 public class ArticleRestController {
 
+    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article", httpMethod = "POST")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "成功", response = AjaxResponse.class),
+        @ApiResponse(code = 400, message = "用户输入错误", response = AjaxResponse.class),
+        @ApiResponse(code = 500, message = "系统内部错误", response = AjaxResponse.class)
+    })
     //    @RequestMapping(value = "/articles", method = POST, produces = "application/json")
     @PostMapping("/articles")
     public AjaxResponse saveArticle(@RequestBody Article article) {
@@ -47,7 +56,7 @@ public class ArticleRestController {
         return AjaxResponse.success(article);
     }
 
-//    @RequestMapping(value = "/articles/{id}", method = DELETE, produces = "application/json")
+    //    @RequestMapping(value = "/articles/{id}", method = DELETE, produces = "application/json")
     @DeleteMapping("/articles/{id}")
     public AjaxResponse deleteArticle(@PathVariable Long id) {
 
