@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository;
 public class ArticleJDBCDAO {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private JdbcTemplate primaryJdbcTemplate;
 
-    public void save(Article article) {
+    public void save(Article article, JdbcTemplate jdbcTemplate) {
         // jdbcTemplate.update 适合于 insert 、update 和 delete 操作；
         jdbcTemplate
             .update("INSERT INTO article(author, title,content,create_time) values(?, ?, ?, ?)",
@@ -24,13 +24,13 @@ public class ArticleJDBCDAO {
 
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Long id, JdbcTemplate jdbcTemplate) {
         // jdbcTemplate.update 适合于 insert 、update 和 delete 操作；
         jdbcTemplate.update("DELETE FROM article WHERE id = ?", new Object[]{id});
 
     }
 
-    public void updateById(Article article) {
+    public void updateById(Article article, JdbcTemplate jdbcTemplate) {
         // jdbcTemplate.update 适合于 insert 、update 和 delete 操作；
         jdbcTemplate.update(
             "UPDATE article SET author = ?, title = ? ,content = ?,create_time = ? WHERE id = ?",
@@ -42,13 +42,13 @@ public class ArticleJDBCDAO {
 
     }
 
-    public Article findById(Long id) {
+    public Article findById(Long id, JdbcTemplate jdbcTemplate) {
         //queryForObject 用于查询单条记录返回结果
         return (Article) jdbcTemplate.queryForObject("SELECT * FROM article WHERE id=?",
             new Object[]{id}, new BeanPropertyRowMapper(Article.class));
     }
 
-    public List<Article> findAll() {
+    public List<Article> findAll(JdbcTemplate jdbcTemplate) {
         //query 用于查询结果列表
         return (List<Article>) jdbcTemplate
             .query("SELECT * FROM article ", new BeanPropertyRowMapper(Article.class));
