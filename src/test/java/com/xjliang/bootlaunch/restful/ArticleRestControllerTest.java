@@ -26,25 +26,25 @@ public class ArticleRestControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(new ArticleRestController()).build();
     }
 
-    @Test
-    public void saveArticle() throws Exception {
-        String article = "{\n" +
-            "    \"id\": 1,\n" +
-            "    \"author\": \"xjliang\",\n" +
-            "    \"title\": \"spring boot study\",\n" +
-            "    \"content\": \"c\",\n" +
-            "    \"createTime\": \"2017-07-16 05:23:34\",\n" +
-            "    \"reader\":[{\"name\":\"xjliang\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
-            "}";
-
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/articles")
-            .contentType("application/json").content(article))
-            .andExpect(MockMvcResultMatchers.status().isOk())
-            .andExpect(MockMvcResultMatchers.jsonPath("$.data.author").value("xjliang"))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.data.reader[0].age").value(18))
-            .andDo(print())
-            .andReturn();
-
-        log.info(result.getResponse().getContentAsString());
-    }
+//    @Test
+//    public void saveArticle() throws Exception {
+//        String article = "{\n" +
+//            "    \"id\": 1,\n" +
+//            "    \"author\": \"xjliang\",\n" +
+//            "    \"title\": \"spring boot study\",\n" +
+//            "    \"content\": \"c\",\n" +
+//            "    \"createTime\": \"2017-07-16 05:23:34\",\n" +
+//            "    \"reader\":[{\"name\":\"xjliang\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
+//            "}";
+//
+//        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/rest/articles")
+//            .contentType("application/json").content(article))
+//            .andExpect(MockMvcResultMatchers.status().isOk())
+//            .andExpect(MockMvcResultMatchers.jsonPath("$.data.author").value("xjliang"))
+//            .andExpect(MockMvcResultMatchers.jsonPath("$.data.reader[0].age").value(18))
+//            .andDo(print())
+//            .andReturn();
+//
+//        log.info(result.getResponse().getContentAsString());
+//    }
 }
