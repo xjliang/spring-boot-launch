@@ -1,6 +1,11 @@
 server:
-  port: 8888
+  port: 8889
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: springuser
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
