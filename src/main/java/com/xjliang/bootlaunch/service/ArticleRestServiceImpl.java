@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
@@ -22,10 +23,14 @@ public class ArticleRestServiceImpl implements ArticleRestService {
     private JdbcTemplate secondaryJdbcTemplate;
 
 
+    @Transactional
     @Override
     public Article saveArticle(Article article) {
         articleJDBCDAO.save(article, primaryJdbcTemplate);
         articleJDBCDAO.save(article, secondaryJdbcTemplate);
+
+        // int a = 2/0;
+
         return article;
     }
 
