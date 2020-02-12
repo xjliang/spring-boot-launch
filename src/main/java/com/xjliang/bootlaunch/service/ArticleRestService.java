@@ -1,17 +1,19 @@
 package com.xjliang.bootlaunch.service;
 
-import com.xjliang.bootlaunch.model.Article;
+import com.xjliang.bootlaunch.model.ArticleVO;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Slf4j
-@Service
-public class ArticleRestService {
+public interface ArticleRestService {
 
-    public String save(Article article) {
+    ArticleVO saveArticle(ArticleVO article);
 
-        log.info("saveArticle: {}", article);
+    void deleteArticleById(Long id);
 
-        return "test";
-    }
+    void updateArticle(ArticleVO article);
+
+    ArticleVO findArticleById(Long id);
+
+    List<ArticleVO> findAllArticles();
 }
