@@ -1,9 +1,7 @@
 package com.xjliang.bootlaunch.controller;
 
-import com.xjliang.bootlaunch.generator.ArticleExample;
 import com.xjliang.bootlaunch.model.AjaxResponse;
 import com.xjliang.bootlaunch.model.ArticleVO;
-import com.xjliang.bootlaunch.service.ArticleMybatisRestServiceImpl;
 import com.xjliang.bootlaunch.service.ArticleRestService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

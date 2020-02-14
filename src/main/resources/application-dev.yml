@@ -5,13 +5,19 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
-    username: springuser
-    password: 123456
+    primary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+      username: springuser
+      password: 123456
+    secondary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost/testdb2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+      username: springuser
+      password: 123456
 
-mybatis:
-  mapper-locations: classpath:/mapper/*.xml
+#mybatis:
+#  mapper-locations: classpath:/mapper/*.xml
 
 logging:
   level:

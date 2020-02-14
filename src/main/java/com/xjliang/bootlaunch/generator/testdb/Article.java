@@ -1,11 +1,11 @@
-package com.xjliang.bootlaunch.generator;
+package com.xjliang.bootlaunch.generator.testdb;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * article
- * @author 
+ * @author
  */
 public class Article implements Serializable {
     private Long id;

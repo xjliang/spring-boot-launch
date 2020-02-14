@@ -2,8 +2,8 @@ package com.xjliang.bootlaunch.mybatis;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.xjliang.bootlaunch.generator.Article;
-import com.xjliang.bootlaunch.generator.ArticleDAO;
+import com.xjliang.bootlaunch.generator.testdb.Article;
+import com.xjliang.bootlaunch.generator.testdb.ArticleDAO;
 import java.util.List;
 import javax.annotation.Resource;
 import org.junit.Test;

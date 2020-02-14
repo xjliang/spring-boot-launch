@@ -1,8 +1,9 @@
 package com.xjliang.bootlaunch.service;
 
-import com.xjliang.bootlaunch.generator.Article;
-import com.xjliang.bootlaunch.generator.ArticleDAO;
-import com.xjliang.bootlaunch.generator.ArticleExample;
+import com.xjliang.bootlaunch.generator.testdb.Article;
+import com.xjliang.bootlaunch.generator.testdb.ArticleDAO;
+import com.xjliang.bootlaunch.generator.testdb2.Message;
+import com.xjliang.bootlaunch.generator.testdb2.MessageDAO;
 import com.xjliang.bootlaunch.model.ArticleVO;
 import com.xjliang.bootlaunch.utils.DozerUtils;
 import java.util.List;
@@ -19,6 +20,9 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
     private ArticleDAO articleDAO;
 
     @Resource
+    private MessageDAO messageDAO;
+
+    @Resource
     private Mapper dozerMapper;
 
     @Override
@@ -27,6 +31,11 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
         articleDAO.insert(articlePO);
 
 //        articleDAO.insertSelective(articlePO);
+
+        Message message = new Message();
+        message.setName("kobe");
+        message.setContent("well done");
+        messageDAO.insert(message);
 
         return article;
     }
