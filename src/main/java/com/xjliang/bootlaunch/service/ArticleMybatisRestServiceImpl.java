@@ -2,6 +2,7 @@ package com.xjliang.bootlaunch.service;
 
 import com.xjliang.bootlaunch.generator.Article;
 import com.xjliang.bootlaunch.generator.ArticleDAO;
+import com.xjliang.bootlaunch.generator.ArticleExample;
 import com.xjliang.bootlaunch.model.ArticleVO;
 import com.xjliang.bootlaunch.utils.DozerUtils;
 import java.util.List;
@@ -24,22 +25,42 @@ public class ArticleMybatisRestServiceImpl implements ArticleRestService {
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleDAO.insert(articlePO);
+
+//        articleDAO.insertSelective(articlePO);
+
         return article;
     }
 
     @Override
     public void deleteArticle(Long id) {
         articleDAO.deleteByPrimaryKey(id);
+
+//        ArticleExample articleExample = new ArticleExample();
+//        articleExample.createCriteria().andIdEqualTo(id);
+//        articleExample.createCriteria().andAuthorEqualTo("xjliang");
+//        int count = articleDAO.deleteByExample(articleExample);
     }
 
     @Override
     public void updateArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleDAO.updateByPrimaryKeySelective(articlePO);
+
+//        Article article1 = new Article();
+//        article1.setAuthor("beta");
+//        ArticleExample articleExample = new ArticleExample();
+//        articleExample.createCriteria().andIdEqualTo(article.getId());
+//
+//        int count = articleDAO.updateByExample(article1, articleExample);
     }
 
     @Override
     public ArticleVO getArticle(Long id) {
+
+//        ArticleExample articleExample = new ArticleExample();
+//        articleExample.createCriteria().andIdEqualTo(id);
+//        Article article = articleDAO.selectByExample(articleExample).get(0);
+
         Article articlePO = articleDAO.selectByPrimaryKey(id);
         return dozerMapper.map(articlePO, ArticleVO.class);
     }
