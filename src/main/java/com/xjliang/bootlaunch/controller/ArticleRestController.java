@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,7 +52,7 @@ public class ArticleRestController {
 
     //    @RequestMapping(value = "/articles/{id}", method = PUT, produces = "application/json")
     @PutMapping("/articles/{id}")
-    public AjaxResponse updateArticle(@PathVariable Long id, @RequestBody ArticleVO article) {
+    public AjaxResponse updateArticle(@PathVariable Long id, @Valid @RequestBody ArticleVO article) {
         article.setId(id);
 
         articleRestService.updateArticle(article);

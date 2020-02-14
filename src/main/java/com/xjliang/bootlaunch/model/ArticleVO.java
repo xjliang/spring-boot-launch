@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class ArticleVO {
 
     private String title;
 
+    @NotEmpty(message = "文章内容不能为空，请检查您的输入")
     private String content;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
