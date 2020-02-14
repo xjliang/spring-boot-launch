@@ -1,7 +1,9 @@
 package com.xjliang.bootlaunch.service;
 
-import com.xjliang.bootlaunch.dao.Article;
-import com.xjliang.bootlaunch.dao.ArticleRepository;
+import com.xjliang.bootlaunch.jpa.testdb.Article;
+import com.xjliang.bootlaunch.jpa.testdb.ArticleRepository;
+import com.xjliang.bootlaunch.jpa.testdb2.Message;
+import com.xjliang.bootlaunch.jpa.testdb2.MessageRepository;
 import com.xjliang.bootlaunch.model.ArticleVO;
 import com.xjliang.bootlaunch.utils.DozerUtils;
 import java.util.List;
@@ -19,11 +21,19 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     private ArticleRepository articleRepository;
 
     @Resource
+    private MessageRepository messageRepository;
+
+    @Resource
     private Mapper dozerMapper;
 
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleRepository.save(articlePO);
+
+        Message message = new Message();
+        message.setName("hello");
+        message.setContent("hello world");
+        messageRepository.save(message);
 
         return article;
     }

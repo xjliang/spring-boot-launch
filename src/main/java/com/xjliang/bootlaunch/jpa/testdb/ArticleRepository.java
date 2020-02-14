@@ -1,4 +1,4 @@
-package com.xjliang.bootlaunch.dao;
+package com.xjliang.bootlaunch.jpa.testdb;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

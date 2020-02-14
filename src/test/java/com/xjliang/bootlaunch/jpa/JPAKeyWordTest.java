@@ -1,6 +1,6 @@
 package com.xjliang.bootlaunch.jpa;
 
-import com.xjliang.bootlaunch.dao.ArticleRepository;
+import com.xjliang.bootlaunch.jpa.testdb.ArticleRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
