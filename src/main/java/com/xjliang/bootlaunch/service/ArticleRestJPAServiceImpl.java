@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
@@ -26,6 +27,7 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     @Resource
     private Mapper dozerMapper;
 
+    @Transactional
     public ArticleVO saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);
         articleRepository.save(articlePO);
@@ -34,6 +36,8 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
         message.setName("hello");
         message.setContent("hello world");
         messageRepository.save(message);
+
+        int a = 2/0;
 
         return article;
     }
