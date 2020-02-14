@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @JsonPropertyOrder(value = {"content", "title"})
-public class Article {
+public class ArticleVO {
 
-    @JsonIgnore
+    //@JsonIgnore
     private Long id;
 
     //@JsonProperty("auther")
