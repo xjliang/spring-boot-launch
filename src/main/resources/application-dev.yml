@@ -16,3 +16,7 @@ mybatis:
 logging:
   level:
     com.xjliang.bootlaunch: debug
+
+context:
+  listener:
+    classes: com.xjliang.bootlaunch.customlistener.MyListener3
