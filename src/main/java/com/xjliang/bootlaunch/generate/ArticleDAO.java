@@ -1,7 +1,5 @@
-package com.xjliang.bootlaunch.generator;
+package com.xjliang.bootlaunch.generate;
 
-import com.xjliang.bootlaunch.generator.Article;
-import com.xjliang.bootlaunch.generator.ArticleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

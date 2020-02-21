@@ -1,7 +1,7 @@
 package com.xjliang.bootlaunch.service;
 
-import com.xjliang.bootlaunch.generator.Article;
-import com.xjliang.bootlaunch.generator.ArticleDAO;
+import com.xjliang.bootlaunch.generate.Article;
+import com.xjliang.bootlaunch.generate.ArticleDAO;
 import com.xjliang.bootlaunch.model.ArticleVO;
 import com.xjliang.bootlaunch.utils.DozerUtils;
 import java.util.List;

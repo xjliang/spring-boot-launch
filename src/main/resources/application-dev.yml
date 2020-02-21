@@ -5,9 +5,9 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
-    username: springuser
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: postgres
     password: 123456
 
 mybatis:
